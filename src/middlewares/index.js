@@ -10,4 +10,5 @@ export const featuring = (store) => (next) => (actionInfo) => {
     action: { ...actionInfo.action, payload: featured }
   };
   next(updatedActionInfo);
-}
+};
+
