@@ -11,8 +11,9 @@ import './App.css';
 
 function App() {
 
-  const pokemons = useSelector(state => state.pokemons);
-  const loading = useSelector(state => state.loading);
+  const pokemons = useSelector(state => state.get('pokemons')).toJS();
+  const loading = useSelector(state => state.get('loading'));
+  // const loading = false;
   const dispatch = useDispatch();
 
   useEffect(() => {
