@@ -1,5 +1,5 @@
 import StarButton from "./StarButton";
-import { setfavorite } from "../actions";
+import { setFavorite } from "../slices/dataSlice";
 import { Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "./PokemonList.css";
@@ -9,7 +9,7 @@ const PokemonCard = (props) => {
   const dispatch = useDispatch();
 
   const handleOnfavorite = () => {
-    dispatch(setfavorite({ pokemonId: id }));
+    dispatch(setFavorite({ pokemonId: id }));
   };
   const { name, image, types, id, favorite } = props;
 
