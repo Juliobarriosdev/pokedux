@@ -13,7 +13,7 @@ import App from './App';
 
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const composedEnhancers = composeAlt(applyMiddleware(thunk ,logger));
+const composedEnhancers = composeAlt(applyMiddleware(thunk ,logger)); //applyMiddleware aplana los middlewares
 
 const store = createStore(rootReducer, composedEnhancers);
 

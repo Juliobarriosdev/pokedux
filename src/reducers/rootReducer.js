@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux"; // si usamos inmutablejS debemos instlar `npm i redux-inmutable`
 import dataReducer from '../slices/dataSlice';
 import uiReducer from '../slices/uiSlice';
 
