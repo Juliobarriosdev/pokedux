@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loading: false
+  loading: false,
+  notFound: true
 }
 
 export const uiSlice = createSlice({
@@ -11,9 +12,12 @@ export const uiSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload
     },
+    setNotFound: (state, action) => {
+      state.notFound = action.payload 
+    },
   },
 });
 
-export const { setLoading } = uiSlice.actions; 
+export const { setLoading, setNotFound } = uiSlice.actions; 
 
 export default uiSlice.reducer;

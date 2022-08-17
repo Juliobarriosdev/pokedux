@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getPokemon, getPokemonDetails } from '../api/index'
-import { setLoading } from './uiSlice'; 
+import { setLoading, setNotFound } from './uiSlice'; 
 
 const initialState = {
   pokemons: []
@@ -17,6 +17,26 @@ export const fetchPokemonWithDetails = createAsyncThunk(
       dispatch(setLoading(false));
   }
 );
+export const getSearch = (namePoke) => (dispatch, getState) => {
+    const { data: { pokemons }, ui} = getState()
+    if (namePoke === '') {
+      dispatch(setNotFound(false))
+      dispatch(fetchPokemonWithDetails())
+      return null
+    }
+    
+    const currentPokedemonIndex = pokemons.findIndex((pokemon) => {
+      return pokemon.name === namePoke;
+    }
+    );
+    if (currentPokedemonIndex >= 0) {
+      dispatch(setNotFound(false))
+      dispatch(setPokemons([pokemons[currentPokedemonIndex]]))
+
+      return null;
+    }
+    dispatch(setNotFound(true))
+  };
 
 export const dataSlice = createSlice({
   name: 'data',

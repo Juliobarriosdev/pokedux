@@ -1,0 +1,7 @@
+.Message {
+  text-align: center;
+  color: red;
+}
+.Message > h3 {
+  color: red;
+}
